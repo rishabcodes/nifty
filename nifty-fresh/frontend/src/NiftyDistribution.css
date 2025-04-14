@@ -1,0 +1,187 @@
+:root {
+    --slider-gradient: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    --thumb-color: #0077b6;
+  }
+  
+  /* Layout */
+  .nifty-container {
+    padding: 30px;
+    font-family: 'Inter', sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .nifty-container.light {
+    background: #ffffff;
+    color: #333;
+  }
+  .nifty-container.dark {
+    background: #1e1e1e;
+    color: #ffffff;
+  }
+  
+  /* Title */
+  .nifty-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--thumb-color);
+  }
+  
+  /* Theme Controls */
+  .theme-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .theme-button {
+    padding: 6px 12px;
+    border: none;
+    margin-left: 8px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .theme-button.active {
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+  }
+  
+  /* Info Text */
+  .date-range-label, .daily-info {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Sliders */
+  .sliders-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 30px 0;
+  }
+  .slider-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 500px;
+  }
+  .slider-heading {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: inherit;
+  }
+  
+  /* Range Track */
+  .track {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--slider-gradient);
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* Slider Thumb: Semi-circle Design */
+  .thumb {
+    width: 20px;
+    height: 20px;
+    background-color: var(--thumb-color);
+    cursor: grab;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    border-radius: 50% 50% 0 0;
+  }
+  .thumb.left {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .thumb.right {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  /* Days to Expiry Slider */
+  .expiry-slider {
+    width: 100%;
+    accent-color: var(--thumb-color);
+    margin-top: 5px;
+  }
+  .expiry-info {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #888;
+  }
+  
+  /* Date Picker */
+  .date-picker-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .date-picker-label {
+    font-weight: 600;
+  }
+  .react-datepicker-wrapper {
+    display: inline-block;
+  }
+  .date-input {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    width: 130px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* Calendar Overrides */
+  .react-datepicker {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    border: none;
+  }
+  .react-datepicker__header {
+    background-color: var(--thumb-color);
+    color: white;
+  }
+  .react-datepicker__current-month,
+  .react-datepicker-time__header,
+  .react-datepicker-year-header {
+    font-weight: bold;
+    color: white;
+  }
+  .react-datepicker__day--selected,
+  .react-datepicker__day--keyboard-selected {
+    background-color: var(--thumb-color);
+  }
+  .react-datepicker__day:hover {
+    background-color: rgba(0, 119, 182, 0.15);
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .track, .expiry-slider {
+      width: 100%;
+    }
+    .date-input {
+      width: 100px;
+    }
+  }
+  
